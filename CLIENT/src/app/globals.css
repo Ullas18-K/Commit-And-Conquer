@@ -54,7 +54,7 @@
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
+  --card: oklch(0.2 0 0); /* Slightly lighter than background */
   --card-foreground: oklch(0.985 0 0);
   --popover: oklch(0.145 0 0);
   --popover-foreground: oklch(0.985 0 0);
@@ -124,6 +124,28 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+}
+
+/* Apply dark mode to the entire body */
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+/* Ensure all text and backgrounds use the correct variables */
+.dark body {
+  background: #000;
+}
+
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.card {
+  background-color: var(--card);
+  color: var(--card-foreground);
+  border-color: var(--border);
 }
 
 @layer base {
